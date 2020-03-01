@@ -1,0 +1,35 @@
+﻿@model IEnumerable<moment3._2.Models.Artist>
+
+@{
+    ViewData["Title"] = "Artister";
+}
+
+<h1>Artister</h1>
+<p>Innan man kan lägga till skivor och låtar måste man lägga till en artist.</p>
+<p>
+    <a asp-action="Create">Lägg till artist</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              Namn
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ArtistId">Ändra</a> |
+                <a asp-action="Details" asp-route-id="@item.ArtistId">Se detaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.ArtistId">Radera</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

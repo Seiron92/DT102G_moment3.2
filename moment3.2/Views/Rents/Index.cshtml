@@ -1,0 +1,50 @@
+﻿@model IEnumerable<moment3._2.Models.Rent>
+
+@{
+    ViewData["Title"] = "Hyrda skivor";
+}
+
+<h1>Hyrda skivor</h1>
+
+<p>
+    <a asp-action="Create">Hyr skiva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Namn
+            </th>
+            <th>
+               Lånedatum
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            string date = item.RentDate.ToString("yyyy-MM-dd"); 
+          
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @date
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cd.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.RentId">Ändra ditt lån</a> |
+                    <a asp-action="Details" asp-route-id="@item.RentId">Detaljer</a> |
+                    <a asp-action="Delete" asp-route-id="@item.RentId">Lämna tillbaka</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
