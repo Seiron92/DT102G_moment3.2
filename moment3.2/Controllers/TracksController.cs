@@ -48,7 +48,7 @@ namespace moment3._2.Controllers
         // GET: Tracks/Create
         public IActionResult Create()
         {
-            ViewData["cdId"] = new SelectList(_context.Cds, "Name", "Name");
+            ViewData["cdId"] = new SelectList(_context.Cds, "CdId", "Name");
             return View();
         }
 
