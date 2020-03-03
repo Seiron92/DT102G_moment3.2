@@ -46,8 +46,5 @@ public ICollection<Cd> Cds { get; set; }
  
 
     }
-    public class TrackList
-    {
-        public List<Track> Tracks { get; set; }
-    }
+
 }
